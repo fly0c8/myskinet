@@ -10,8 +10,8 @@ namespace Infrastructure.Data
         {
         }
         public DbSet<Product> Products {get;set;}
-        public DbSet<Product> ProductBrands {get;set;}
-        public DbSet<Product> ProductTypes {get;set;}
+        public DbSet<ProductBrand> ProductBrands {get;set;}
+        public DbSet<ProductType> ProductTypes {get;set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
