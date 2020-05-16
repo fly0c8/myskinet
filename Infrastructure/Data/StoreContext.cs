@@ -1,5 +1,6 @@
 using Core.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace Infrastructure.Data
 {
@@ -7,9 +8,16 @@ namespace Infrastructure.Data
     {
         public StoreContext(DbContextOptions options) : base(options)
         {
-
         }
         public DbSet<Product> Products {get;set;}
+        public DbSet<Product> ProductBrands {get;set;}
+        public DbSet<Product> ProductTypes {get;set;}
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
         
     }
 }
